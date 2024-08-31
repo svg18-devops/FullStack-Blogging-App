@@ -62,3 +62,17 @@ subjects:
 - kind: ServiceAccount
   name: jenkins
   namespace: app-rolebinding  # The namespace where the ServiceAccount "jenkins" exists
+
+## Create additional API tokens
+https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#create-token
+
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+metadata:
+  name: mysecretname
+  annotations:
+    kubernetes.io/service-account.name: myserviceaccount
+
+
+
